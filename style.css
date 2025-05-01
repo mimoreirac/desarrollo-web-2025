@@ -1,3 +1,14 @@
 header{
     color: blue;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+nav{
+    background-color: beige;
+}
+section{
+    background-color: cadetblue;
+}
+article{
+    background-color: yellow;
 }
