@@ -1,7 +1,7 @@
 console.log("Test");
 
 let age = 29;
-let nombre = "Martin Moreira";
+let nombre = "John SMith";
 let hobbies = ["Gaming"];
 
 let element = document.querySelector("h1");
@@ -11,6 +11,7 @@ let titulos = document.querySelectorAll("h1");
 
 let contador = document.querySelector(".numero-contador");
 let botonContador = document.querySelector(".boton-contador");
+let botonResta = document.querySelector(".boton-resta");
 
 button.addEventListener("click", () => {
   titulos[0].textContent = "elemento 1";
@@ -20,9 +21,32 @@ button.addEventListener("click", () => {
   elementoParrafo.classList.add("active");
 });
 
-let i = 1;
+let i = 0;
 
 botonContador.addEventListener("click", () => {
-  contador.textContent = i;
   i++;
+  contador.textContent = i;
+});
+
+botonResta.addEventListener("click", () => {
+  i--;
+  contador.textContent = i;
+});
+
+let createBtnButton = document.querySelector(".create-btn");
+
+let elementosCreados = [];
+
+createBtnButton.addEventListener("click", () => {
+  let newElement = document.createElement("p");
+  newElement.textContent = "Esto es un p generado programaticamente";
+  elementosCreados.push(newElement);
+  document.querySelector("main").appendChild(newElement);
+});
+
+let removeBtnButton = document.querySelector(".remove-btn");
+
+removeBtnButton.addEventListener("click", () => {
+  let elementoABorrar = elementosCreados.pop();
+  document.querySelector("main").removeChild(elementoABorrar);
 });
