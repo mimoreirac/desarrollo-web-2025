@@ -1,4 +1,13 @@
-body {
-    background-color: gray;
+.card {
+    width: 180px;
+    height: 200px;
+    border-radius: 10%;
+    border: 1px solid;
+    margin: 5px;
+    text-align: center;
 }
 
+.card img {
+    height: 100px;
+    width: 100px;
+}
