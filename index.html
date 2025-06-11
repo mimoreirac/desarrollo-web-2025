@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <aside>
+      <form id="contactForm">
+        <input
+          type="text"
+          id="nombre"
+          placeholder="Nombre"
+          required
+          minlength="2"
+        />
+        <input type="email" id="correo" placeholder="Correo" required />
+        <input type="tel" id="telefono" placeholder="Teléfono" required />
+        <br />
+        <div id="telefonoError"></div>
+        <button type="submit">Agregar Contacto</button>
+      </form>
+    </aside>
+    <section>
+      <h2>Lista de Contactos</h2>
+      <button type="button" id="botonOrganizar">
+        Organizar Alfabeticamente
+      </button>
+      <div id="listaContactos"></div>
+      <button type="button" id="mostrar5">Mostrar 5</button
+      ><button type="button" id="mostrar10">Mostrar 10</button
+      ><button type="button" id="mostrar15">Mostrar 15</button>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
