@@ -43,11 +43,38 @@ function mostrarContactos(limite) {
     const deleteButton = document.createElement("button");
     deleteButton.textContent = `Eliminar contacto`;
     card.appendChild(deleteButton);
+    
+    const editButton = document.createElement("button");
+    editButton.textContent = `Editar contacto`;
+    card.appendChild(editButton);
+    
     lista.appendChild(card);
 
     deleteButton.addEventListener("click", () => {
       eliminarContacto(i);
     });
+
+    editButton.addEventListener("click", () => {
+      const nombreInput = document.createElement("input");
+      const correoInput = document.createElement("input");
+      const telefonoInput = document.createElement("input");
+      const editarSubmit = document.createElement("button")
+      nombreInput.id = "editarNombre";
+      correoInput.id = "editarCorreo";
+      telefonoInput.id = "editarTelefono";
+      editarSubmit.textContent = "Guardar"
+
+      card.appendChild(nombreInput);
+      card.appendChild(correoInput);
+      card.appendChild(telefonoInput);
+      card.appendChild(editarSubmit);
+
+      editarSubmit.addEventListener("click", () => {
+        editarContacto(i);
+      })
+    })
+
+
   });
 }
 
@@ -82,7 +109,9 @@ function organizarAlfabeticamente() {
 function editarContacto(index) {
   let contactos = JSON.parse(localStorage.getItem("contactos")) || [];
   if (index >= 0 && index < contactos.length) {
-    contactos.splice(index, 1);
+    contactos[index].nombre = document.getElementById("editarNombre").value;
+    contactos[index].correo = document.getElementById("editarCorreo").value;
+    contactos[index].telefono = document.getElementById("editarTelefono").value;
     localStorage.setItem("contactos", JSON.stringify(contactos));
     mostrarContactos();
   } else {
