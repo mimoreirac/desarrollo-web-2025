@@ -43,11 +43,11 @@ function mostrarContactos(limite) {
     const deleteButton = document.createElement("button");
     deleteButton.textContent = `Eliminar contacto`;
     card.appendChild(deleteButton);
-    
+
     const editButton = document.createElement("button");
     editButton.textContent = `Editar contacto`;
     card.appendChild(editButton);
-    
+
     lista.appendChild(card);
 
     deleteButton.addEventListener("click", () => {
@@ -58,11 +58,11 @@ function mostrarContactos(limite) {
       const nombreInput = document.createElement("input");
       const correoInput = document.createElement("input");
       const telefonoInput = document.createElement("input");
-      const editarSubmit = document.createElement("button")
+      const editarSubmit = document.createElement("button");
       nombreInput.id = "editarNombre";
       correoInput.id = "editarCorreo";
       telefonoInput.id = "editarTelefono";
-      editarSubmit.textContent = "Guardar"
+      editarSubmit.textContent = "Guardar";
 
       card.appendChild(nombreInput);
       card.appendChild(correoInput);
@@ -71,10 +71,8 @@ function mostrarContactos(limite) {
 
       editarSubmit.addEventListener("click", () => {
         editarContacto(i);
-      })
-    })
-
-
+      });
+    });
   });
 }
 
