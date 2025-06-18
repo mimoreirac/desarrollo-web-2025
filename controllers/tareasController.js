@@ -9,6 +9,7 @@ exports.addTareas = (req, res) => {
   let { nombre, completed } = req.body;
   let nuevo = { id: Date.now(), nombre, completed };
   tareas.push(nuevo);
+  console.log("Se agregaron nuevas tareas");
   console.log(nombre);
   res.status(201).json(nuevo);
 };
@@ -35,4 +36,18 @@ exports.eliminarTarea = (req, res) => {
 
   tareas = tareas.filter((t) => t.id !== id); //Usa un filtro en vez de splice, que es mejor?
   res.json({ message: "Tarea eliminada correctamente" });
+};
+
+exports.editarTareas = (req, res) => {
+  let tareaId = Number(req.params.id);
+  let tareaIndex = tareas.findIndex((tarea) => tarea.id === tareaId);
+  if (tareaIndex === -1) {
+    return res.status(404).json({ message: "Tarea no encontrada" });
+  }
+  tareas.splice(tareaIndex, 1);
+  let { nombre, completed } = req.body;
+  let nuevo = { id: tareaId, nombre, completed };
+  tareas.push(nuevo);
+  console.log(nombre);
+  res.status(201).json(nuevo);
 };
